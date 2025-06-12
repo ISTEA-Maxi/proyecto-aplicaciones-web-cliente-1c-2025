@@ -1,22 +1,25 @@
-:root{
+:root{ /*en root creo y seteo las variables*/
     --color-primario: #3498db;
     --coor-secundario: #2ecc71;
     --color-terciario: #e74c3c;
 }
 
-.lista-articulos{
-    background-color: bisque;
+body{
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-div:not(.clase-TEST){ /*a todos los div menos lo indicado aplica el estilo*/
-    color: red;
+header{
+    background-color: #091437;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
 }
 
-:is(h1,h2,.clase-X){ /*a las clases indicadas aplica es estilo*/
-    background-color: green;
+header h1{ /*solo el h1 del header*/
+    font-size: 2em;
+    margin-bottom: 10px;
 }
-
-article:nth-child(3){ /*al 3er hijo aplica el estilo*/
-    font-family: 'Courier New', Courier, monospace;
-    background-color: var(--color-terciario);
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /*importa una url de estilo de google*/

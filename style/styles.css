@@ -1,7 +1,7 @@
 :root{ /*en root creo y seteo las variables*/
     --color-primario: #3498db;
     --coor-secundario: #2ecc71;
-    --color-terciario: #e74c3c;
+    --color-terciario: #e74c3c; /*hacer semaforo de colores segun tipo de auto*/
 }
 
 body{
@@ -18,8 +18,67 @@ header{
     text-align: center;
 }
 
-header h1{ /*solo el h1 del header*/
-    font-size: 2em;
-    margin-bottom: 10px;
+nav{
+    background-color: #2ecc71;
+    padding: 10px 0; /*Margen interno*/
+    ul{ /*Concateno el ul dentro del nav, se lee mejor, no?*/
+        display: flex;
+        flex-direction: row;
+        gap: 20px; /*separado entre elementos*/
+        justify-content: center; /*elementos centrados*/
+        list-style: none; /*saca los bullets*/
+        a{
+            color: var(--color-terciario);
+            text-decoration: none;
+         }
+    }
 }
+
+.container{
+    display: flex;
+    min-height: calc(100vh - 170px); /*viewport height*/
+}
+
+aside{
+    width: 250px;
+    padding: 1.5rem;
+    border-right: 1px solid var(--color-terciario);
+}
+
+main{
+    padding: 2rem; /*con 1 valor aplica a los 4 lados*/
+}
+
+.grilla-productos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: repeat(4, 1fr); cada columna ocupa 1 fracción y se repite*/
+    gap: 1.5rem;
+}
+
+.tarjeta-articulos{
+    background-color: fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px var(--color-terciario);
+}
+
+/*
+header h1{ /*solo el h1 del header*/
+/*    font-size: 2em;
+    margin-bottom: 10px;
+}*/
+#card-1{
+    position: relative;
+    top: 15px;
+}
+
+footer{
+    background-color: #091437;
+    color: #fff;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 10px;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /*importa una url de estilo de google*/

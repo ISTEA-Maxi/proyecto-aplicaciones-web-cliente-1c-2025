@@ -7,27 +7,65 @@
     <link rel="stylesheet" href="/style/styles.css">
 </head>
 <body>
-    <h1>Clase 3 - 01/04</h1>
-    <article class="lista-articulos">
-        <img src="/img/google.png" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p>Descripción 1</p>
-        <p>Precio: U$D 400</p>
-        <button>Buy</button>
-    </article>
-        <article class="lista-articulos">
-        <img src="/img/google.png" alt="Producto 2">
-        <h3>Producto 2</h3>
-        <p>Descripción 2</p>
-        <p>Precio: U$D 400</p>
-        <button>Buy</button>
-    </article>
-        <article class="lista-articulos">
-        <img src="/img/google.png" alt="Producto 3">
-        <h3>Producto 3</h3>
-        <p>Descripción 3</p>
-        <p>Precio: U$D 400</p>
-        <button>Buy</button>
-    </article>
+    <header>
+        <h1>Nihon buy/rent a car</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" target="_blank">Menu 1</a></li>
+            <li><a href="#" target="_blank">Menu 2</a></li>
+            <li><a href="#" target="_blank">Menu 3</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside>     
+            <h2>Filtro</h2> <!--buscador-->
+            <div class="buscador-fltro">
+                <input type="text" placeholder="Buscar productos">
+            </div>
+            <div>
+                <label><input type="checkbox">Ofertas</label>
+                <label><input type="checkbox">Envio gratis</label>
+            </div>
+        </aside>
+
+        <main id="main">
+            <h1>Clase 3 - 01/04</h1> 
+            <section class="grilla-productos">
+                <article id="card-1" class="tarjeta-articulos">
+                    <img src="/img/google.png" alt="Producto 1">
+                    <h3>Producto 1</h3>
+                    <p>Descripción 1</p>
+                    <p>Precio: U$D 400</p>
+                    <button>Buy</button>
+                </article>
+                <article id="card-1" class="tarjeta-articulos">
+                    <img src="/img/google.png" alt="Producto 2">
+                    <h3>Producto 2</h3>
+                    <p>Descripción 2</p>
+                    <p>Precio: U$D 400</p>
+                    <button>Buy</button>
+                </article>
+                <article id="card-1" class="tarjeta-articulos">
+                    <img src="/img/google.png" alt="Producto 3">
+                    <h3>Producto 3</h3>
+                    <p>Descripción 3</p>
+                    <p>Precio: U$D 400</p>
+                    <button>Buy</button>
+                </article>
+                <article id="card-1" class="tarjeta-articulos">
+                    <img src="/img/google.png" alt="Producto 1">
+                    <h3>Producto 4</h3>
+                    <p>Descripción 4</p>
+                    <p>Precio: U$D 400</p>
+                    <button>Buy</button>
+                </article>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>Todos los derechos e izquierdos reservados &COPY;</p>
+        <a href="#">Contact us</a>
+    </footer>
 </body>
 </html>

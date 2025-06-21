@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de primer pagina</title>
+    <title>Clase 3</title>
     <link rel="stylesheet" href="/style/styles.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1>Nihon buy/rent a car</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" target="_blank">Menu 1</a></li>
+            <li><a href="#" target="_blank">Menu 2</a></li>
+            <li><a href="#" target="_blank">Menu 3</a></li>
+        </ul>
+    </nav>
     <div class="container">
-    <aside>     
-        <h2>Filtro</h2> <!--buscador-->
-        <input type="text" placeholder="Buscar productos">
-        <label><input type="checkbox">Ofertas</label>
-        <label><input type="checkbox">Envio gratis</label>
-    </aside>
-    <main id="main">
-        <img src="./img/google.png" alt="">
-        <nav>
-            <div>
-                <h2>Clases</h2>
-                <li><a href="/03-18/index.html" target="_blank">Clase 1</a></li>
-                <li><a href="/03-25/index.html" target="_blank">Clase 2</a></li>
-                <li><a href="/04-01/index.html" target="_blank">Clase 3</a></li>
+        <aside>     
+            <h2>Filtro</h2> <!--buscador-->
+            <div class="buscador-fltro">
+                <input type="text" placeholder="Buscar productos">
             </div>
-        </nav>
-    </main>
+            <div>
+                <label><input type="checkbox">Ofertas</label>
+                <label><input type="checkbox">Envio gratis</label>
+            </div>
+        </aside>
+
+        <main id="main">
+            <h1>Catalogo de productos</h1> 
+            <section class="grilla-productos">
+                <!-- prodcutos cargados de jscript -->
+                <script src="./scripts/app.js"></script>
+            </section>
+        </main>
     </div>
-    <footer>Todos los derechos e izquierdos reservados.</footer>
+    <footer>
+        <p>Todos los derechos e izquierdos reservados &COPY;</p>
+        <a href="#">Contact us</a>
+    </footer>
 </body>
 </html>

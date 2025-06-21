@@ -55,7 +55,7 @@ function createproductcard(products) {
     return card; /*retornamos la tarjeta*/
 }
 
-products.forEach(product => {
+products.forEach(product => { /*recorre todo el vector*/
     const card = createproductcard(product); /*creamos la tarjeta*/
-    grid.appendChild(card); /*agregamos la tarjeta a la grilla*/
+    grid.appendChild(card); /*inserta lo productos*/
 });

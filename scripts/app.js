@@ -26,25 +26,26 @@ const products = [
 ];
 
 const grid = document.querySelector('.grilla-productos');
+const searchInput = document.querySelector('#input-search-filter');
 
-function createproductcard(products) {
-    const card = document.createElement('article'); /*creamos la tarjeta*/
+function createProductCard(products) {
+    const card = document.createElement('article'); //creamos la tarjeta
     card.classList.add('tarjeta-articulos');
 
-    const img = document.createElement('img'); /*creamos la imagen*/
+    const img = document.createElement('img'); //creamos la imagen
     img.src = products.image;
     img.alt = products.name;
 
-    const title = document.createElement('h3'); /*creamos el titulo*/
+    const title = document.createElement('h3'); //creamos el titulo
     title.textContent = products.name;
 
-    const description = document.createElement('p'); /*creamos la descripcion*/
+    const description = document.createElement('p'); //creamos la descripcion
     description.textContent = products.description;
 
-    const price = document.createElement('p'); /*creamos el precio*/
+    const price = document.createElement('p'); //creamos el precio
     price.textContent = `$${products.price}`;
 
-    const button = document.createElement('button'); /*creamos el boton*/
+    const button = document.createElement('button'); //creamos el boton
     button.textContent = 'Buy!';
 
     card.appendChild(img);
@@ -52,7 +53,7 @@ function createproductcard(products) {
     card.appendChild(description);
     card.appendChild(price);
     card.appendChild(button);
-    return card; /*retornamos la tarjeta*/
+    return card; //retornamos la tarjeta
 }
 
 // Funcion para agregar un nuevo producto
@@ -63,14 +64,33 @@ function addProduct() {
         image: "./img/google.png",
         price: 25,
     };
-    const card = createproductcard(newProduct); /*creamos la tarjeta del nuevo producto*/
-    grid.appendChild(card); /*insertamos la tarjeta en el grid*/
+    const card = createProductCard(newProduct); //creamos la tarjeta del nuevo producto
+    grid.appendChild(card); //insertamos la tarjeta en el grid
 }
 
-products.forEach(product => { /*recorre todo el vector*/
-    const card = createproductcard(product); /*creamos la tarjeta*/
-    grid.appendChild(card); /*inserta lo productos*/
+function renderProducts(list) {
+    list.forEach(product => { //recorre todo el vector
+    const card = createProductCard(product); //creamos la tarjeta
+    grid.appendChild(card); //inserta lo productos
+    });
+}
+
+function filterProducts(text){
+    const filteredProducts = products.filter(product => {
+        return product.name.toLowerCase().includes(text.toLowerCase()); //filtra sin importar la mayuscula o minuscula
+    });
+    grid.innerHTML = ''; //limpia el grid
+    renderProducts(filteredProducts); //llamamos a la funcion para que aparezca
+}
+searchInput.addEventListener('input', (event) => {
+    filterProducts(event.target.value); //captura el valor del input
 });
 
+renderProducts(products); //llamamos a la funcion para que aparezca
+
 const button = document.querySelector('#btn-add-product');
-button.addEventListener('click', addProduct); 
+//button.addEventListener('click', addProduct); 
+button.addEventListener('click', () => {
+    addProduct();
+    alert('Se agregó un producto');
+});

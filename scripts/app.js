@@ -4,29 +4,34 @@ const products = [
         description: "Camiseta de algodon 100%",
         image: "./img/google.png",
         price: 15,
+        deliveryFree: true,
     },
     {
         name: "Pantalon",
         description: "Pantalon largo",
         image: "./img/google.png",
         price: 20,
+        deliveryFree: true,
     },
     {
         name: "Zapatos",
         description: "Zapatos de cuero",
         image: "./img/google.png",
         price: 30,
+        deliveryFree: false,
     },
     {
         name: "Gorro",
         description: "Gorro de sol",
         image: "./img/google.png",
         price: 10,
+        deliveryFree: false,
     },
 ];
 
 const grid = document.querySelector('.grilla-productos');
 const searchInput = document.querySelector('#input-search-filter');
+const deliveryFreeCheckbox = document.querySelector('#delivery-free');
 
 function createProductCard(products) {
     const card = document.createElement('article'); //creamos la tarjeta
@@ -63,6 +68,7 @@ function addProduct() {
         description: "Descripcion del nuevo producto",
         image: "./img/google.png",
         price: 25,
+        deliveryFree: false,
     };
     const card = createProductCard(newProduct); //creamos la tarjeta del nuevo producto
     grid.appendChild(card); //insertamos la tarjeta en el grid
@@ -77,11 +83,13 @@ function renderProducts(list) {
 
 function filterProducts(text){
     const filteredProducts = products.filter(product => {
-        return product.name.toLowerCase().includes(text.toLowerCase()); //filtra sin importar la mayuscula o minuscula
+        return product.name.toLowerCase().includes(text.toLowerCase()) //filtra sin importar la mayuscula o minuscula
+        && (product.deliveryFree === deliveryFreeCheckbox.checked || !deliveryFreeCheckbox.checked); //filtra por el checkbox
     });
     grid.innerHTML = ''; //limpia el grid
     renderProducts(filteredProducts); //llamamos a la funcion para que aparezca
 }
+
 searchInput.addEventListener('input', (event) => {
     filterProducts(event.target.value); //captura el valor del input
 });

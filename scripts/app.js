@@ -81,6 +81,7 @@ function renderProducts(list) {
     });
 }
 
+// FUNCION DE FILTRO
 function filterProducts(text){
     const filteredProducts = products.filter(product => {
         return product.name.toLowerCase().includes(text.toLowerCase()) //filtra sin importar la mayuscula o minuscula
@@ -94,11 +95,23 @@ searchInput.addEventListener('input', (event) => {
     filterProducts(event.target.value); //captura el valor del input
 });
 
+deliveryFreeCheckbox.addEventListener('change', () => {
+    filterProducts(searchInput.value); //con esto filtramos los productos cuando se cambia el checkbox
+});
+
 renderProducts(products); //llamamos a la funcion para que aparezca
 
 const button = document.querySelector('#btn-add-product');
 //button.addEventListener('click', addProduct); 
 button.addEventListener('click', () => {
     addProduct();
-    alert('Se agregó un producto');
+    alert('Se agregó un producto'); // muestor un mensaje cada vez que se agrega un producto
 });
+
+const getProducts = async () => { //meto la funcion async dentro de la variable getProducts
+    const response = await fetch('https://dummyjson.com/products'); //obtenemos los productos de la API
+    const data = await response.json(); //convertimos la respuesta a JSON
+    console.log('data', data.products); //mostramos los productos en la consola
+}
+
+getProducts(); //llamamos a la funcion para que aparezca los productos de la API

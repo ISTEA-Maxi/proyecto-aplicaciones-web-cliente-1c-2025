@@ -1,3 +1,4 @@
+/*
 const products = [
     {
         name: "Camiseta",
@@ -28,6 +29,18 @@ const products = [
         deliveryFree: false,
     },
 ];
+*/
+
+const products = []; //creamos la variable products vacio para despues llenarlo cuando hace la llamada
+
+const getProducts = async () => { //meto la funcion async dentro de la variable getProducts
+    const response = await fetch('https://dummyjson.com/products'); //obtenemos los productos de la API
+    const data = await response.json(); //convertimos la respuesta a JSON
+    console.log('data', data.products); //mostramos los productos en la consola
+    renderProducts(data.products); //llamamos a la funcion renderProducts para que dibuje los productos
+}
+
+getProducts(); //llamamos a la funcion para que aparezca los productos de la API
 
 const grid = document.querySelector('.grilla-productos');
 const searchInput = document.querySelector('#input-search-filter');
@@ -38,11 +51,11 @@ function createProductCard(products) {
     card.classList.add('tarjeta-articulos');
 
     const img = document.createElement('img'); //creamos la imagen
-    img.src = products.image;
-    img.alt = products.name;
+    img.src = products.thumbnail;
+    img.alt = products.title;
 
     const title = document.createElement('h3'); //creamos el titulo
-    title.textContent = products.name;
+    title.textContent = products.title;
 
     const description = document.createElement('p'); //creamos la descripcion
     description.textContent = products.description;
@@ -107,11 +120,3 @@ button.addEventListener('click', () => {
     addProduct();
     alert('Se agregó un producto'); // muestor un mensaje cada vez que se agrega un producto
 });
-
-const getProducts = async () => { //meto la funcion async dentro de la variable getProducts
-    const response = await fetch('https://dummyjson.com/products'); //obtenemos los productos de la API
-    const data = await response.json(); //convertimos la respuesta a JSON
-    console.log('data', data.products); //mostramos los productos en la consola
-}
-
-getProducts(); //llamamos a la funcion para que aparezca los productos de la API

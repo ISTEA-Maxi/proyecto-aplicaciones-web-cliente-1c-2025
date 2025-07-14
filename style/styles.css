@@ -30,6 +30,9 @@ nav{
     ul{ /*Concateno el ul dentro del nav, se lee mejor, no?*/
         display: flex;
         flex-direction: row;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         gap: 20px; /*separado entre elementos*/
         justify-content: center; /*elementos centrados*/
         list-style: none; /*saca los bullets*/

@@ -75,6 +75,10 @@ main{
 }
 
 .tarjeta-articulos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     background-color: #fff;
     padding: 1rem;
     border-radius: 5px;
@@ -85,11 +89,13 @@ main{
         border-radius: 5px;*/
     }
     button{
-        float: right;
+
+        align-self: flex-end;
         color: #fff;
         background-color: #3498db;
-        padding: 2px;
+        padding: 2px 8px;
         border-radius: 2px;
+        border: none;
         /*transition: background-color 3s ease;*/
     }
     button:hover{

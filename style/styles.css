@@ -110,6 +110,14 @@ main{
     }
 }
 
+.separador {
+  border: none;
+  height: 2px;
+  background-color: var(--color-primario);
+  width: 80%;
+  margin: 3rem auto;
+}
+
 footer{
     background-color: var(--color-secundario);
     color: var(--color-terciario);

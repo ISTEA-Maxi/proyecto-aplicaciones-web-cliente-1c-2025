@@ -29,19 +29,20 @@ const getProducts = async () => { //meto la funcion async dentro de la variable 
         }
     }); 
     const data = await response.json(); //convertimos la respuesta a JSON
-    console.log('data', data); //mostramos los productos en la consola
+    //console.log('data', data); //mostramos los productos en la consola
 
     const productsMaped = data.records.map(item => {
         return {
-        title: item.fields.title,
-        brand: item.fields.brand,
-        model: item.fields.model,
-        description: item.fields.description,
-        image: item.fields.image,
-        price: item.fields.price,
+            title: item.fields.title,
+            brand: item.fields.brand,
+            model: item.fields.model,
+            description: item.fields.description,
+            image: item.fields.image,
+            price: item.fields.price,
     };
     })
-    console.log(productsMaped); 
+    //console.log(productsMaped); 
+    products.push(...productsMaped); //le mando a products el contenido de productsMaped
     renderProducts(productsMaped); //mostramos en el grid los productos obtenidos de la API
 }
 
@@ -60,7 +61,6 @@ function createProductCard(products) {
     img.alt = products.title;
 
     const title = document.createElement('h3'); //creamos el titulo
-    //title.textContent = products.title+products.brand;
     title.textContent = `${products.brand} ${products.model} ${products.title}`;
 
 
@@ -108,7 +108,7 @@ function renderProducts(list) {
 // FUNCION DE FILTRO
 function filterProducts(text){
     const filteredProducts = products.filter(product => {
-        return product.name.toLowerCase().includes(text.toLowerCase()) //filtra sin importar la mayuscula o minuscula
+        return `${product.brand} ${product.model} ${product.title} ${product.description}`.toLowerCase().includes(text.toLowerCase()) //filtra sin importar la mayuscula o minuscula
         && (product.deliveryFree === deliveryFreeCheckbox.checked || !deliveryFreeCheckbox.checked); //filtra por el checkbox
     });
     grid.innerHTML = ''; //limpia el grid

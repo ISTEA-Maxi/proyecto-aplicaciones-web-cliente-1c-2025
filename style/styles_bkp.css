@@ -4,6 +4,12 @@
     --color-terciario: #e74c3c; /*hacer semaforo de colores segun tipo de auto*/
 }
 
+/*cfg global*/
+
+* { /*esto me arregló el problema del borde en pantallas que no eran de escritorio*/
+  box-sizing: border-box;
+}
+
 body{
     background-color: #efd6e5;
     color: #000000;
@@ -24,6 +30,9 @@ nav{
     ul{ /*Concateno el ul dentro del nav, se lee mejor, no?*/
         display: flex;
         flex-direction: row;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         gap: 20px; /*separado entre elementos*/
         justify-content: center; /*elementos centrados*/
         list-style: none; /*saca los bullets*/
@@ -34,6 +43,7 @@ nav{
     }
 }
 
+/*cfg para pc de escritorio*/
 .container{
     display: flex;
     min-height: calc(100vh - 170px); /*viewport height*/
@@ -48,18 +58,27 @@ aside{
 main{
     padding: 2rem; /*con 1 valor aplica a los 4 lados*/
     flex-grow: 1; /*las tarjetas se puede acomodar mejor*/
+    max-width: 100%;
+    overflow-x: auto; /*no se salga de la pantalla*/
+    box-sizing: border-box; /*para que el padding no afecte al ancho total*/
+
 }
 
 .grilla-productos{
     display: grid;
-    grid-template-columns: repeat(2,40%);
     grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); /*acomodo las tarjetas, con auto-fill mantiene su aspecto sin verse feo*/
     /*grid-template-columns: 1fr 1fr;*/
     /* grid-template-columns: repeat(4, 1fr); cada columna ocupa 1 fracción y se repite*/
     gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .tarjeta-articulos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     background-color: #fff;
     padding: 1rem;
     border-radius: 5px;
@@ -70,11 +89,13 @@ main{
         border-radius: 5px;*/
     }
     button{
-        float: right;
+
+        align-self: flex-end;
         color: #fff;
         background-color: #3498db;
-        padding: 2px;
+        padding: 2px 8px;
         border-radius: 2px;
+        border: none;
         /*transition: background-color 3s ease;*/
     }
     button:hover{
@@ -99,6 +120,29 @@ footer{
     text-align: center;
     font-size: 0.8rem;
     padding: 10px;
+}
+
+/*cfg para pantallas chicas*/
+@media (max-width: 768px) {
+        .container {
+            flex-direction: column; /* cambia de fila a columna */
+    }
+        aside {
+            width: 100%; /* ocupa todo el ancho arriba */
+            border-right: none;
+            border-bottom: 1px solid var(--color-terciario);
+            margin-bottom: 1rem;
+    }
+        main {
+            padding-top: 1rem; /* separa el contenido del filtro */
+    }
+        .grilla-productos {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            justify-items: center;
+    }
+        .tarjeta-articulos {
+            max-width: 400px;
+    }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /*importa una url de estilo de google*/

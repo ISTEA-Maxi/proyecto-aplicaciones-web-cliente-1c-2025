@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihon Rentals & Parts</title>
+    <link rel="stylesheet" href="./style/styles.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Nihon Rentals & Parts</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" target="_blank">Rent</a></li>
+            <li><a href="#" target="_blank">Tienda</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside>     
+            <h2>Filtro</h2> <!--buscador-->
+            <div class="buscador-fltro">
+                <input id="input-search-filter" placeholder="Buscar productos">
+            </div>
+            <div>
+                <label><input type="checkbox">Ofertas</label>
+                <label><input id="delivery-free" type="checkbox">Envio gratis</label>
+            </div>
+        </aside>
+
+        <main id="main">
+            <h1>Catalogo de productos</h1> 
+            <section class="grilla-productos">
+                <!-- prodcutos cargados de jscript -->
+            </section>
+            <!-- <button id="btn-add-product">Agregar</button> -->
+        </main>
+    </div>
+    <footer>
+        <p>Todos los derechos e izquierdos reservados &COPY;</p>
+        <a href="#">Contact us</a>
+    </footer>
+</body>
+<script src="./scripts/app.js"></script>
+</html>

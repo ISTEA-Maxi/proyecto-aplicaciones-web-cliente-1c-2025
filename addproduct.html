@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar articulo - Nihon Rentals & Parts</title>
+    <link rel="stylesheet" href="./style/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Nihon Rentals & Parts</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" target="_blank">Rent</a></li>
+            <li><a href="#" target="_blank">Tienda</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main id="main" style="flex-grow: 1; padding: 2rem;">
+            <h1>Agregar articulo</h1>
+            <p>¿Falta alguna parte? Agregala al listado y pronto estará disponible para comprar.</p>
+            
+            <form onsubmit="addProduct(event)">
+                <label for="brand">Marca:</label>
+                <input type="text" id="brand" name="Marca" placeholder="Marca del auto" required>
+                <br>
+                <label for="model">Modelo:</label>
+                <input type="text" id="model" name="Modelo" placeholder="Modelo del auto" required>
+                <br>
+                <label for="title">Titulo:</label>
+                <input type="text" id="title" name="Titulo" placeholder="Titulo del articulo" required>
+                <br>
+                <label for="description">Descripción:</label>
+                <textarea type="text" id="description" name="Descripción" placeholder="Descripción del articulo" required></textarea>
+                <br>
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
+    </div>
+
+    <footer>
+        <p>Todos los derechos e izquierdos reservados &COPY;</p>
+        <a href="#">Contact us</a>
+    </footer>
+
+</body>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/addproduct.js"></script>
+</html>

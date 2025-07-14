@@ -42,7 +42,7 @@ const getProducts = async () => { //meto la funcion async dentro de la variable 
     };
     })
     //console.log(productsMaped); 
-    products.push(...productsMaped); //le mando a products el contenido de productsMaped
+    products.push(...productsMaped); //le mando a products el contenido de productsMaped para que funcione el buscador
     renderProducts(productsMaped); //mostramos en el grid los productos obtenidos de la API
 }
 
@@ -63,7 +63,6 @@ function createProductCard(products) {
     const title = document.createElement('h3'); //creamos el titulo
     title.textContent = `${products.brand} ${products.model} ${products.title}`;
 
-
     const description = document.createElement('p'); //creamos la descripcion
     description.textContent = products.description;
 
@@ -79,23 +78,6 @@ function createProductCard(products) {
     card.appendChild(price);
     card.appendChild(button);
     return card; //retornamos la tarjeta
-}
-
-// Funcion para agregar un nuevo producto
-function addProduct() {
-    const newProduct = {
-        title: "Nuevo Producto",
-        description: "Descripcion del nuevo producto",
-        image: "./img/google.png",
-        price: 25,
-        deliveryFree: false,
-    };
-
-    // Insertarlo en airtable
-    addToAirtable(newProduct); //llamamos a la funcion para agregar el producto a Airtable
-
-    const card = createProductCard(newProduct); //creamos la tarjeta del nuevo producto
-    grid.appendChild(card); //insertamos la tarjeta en el grid
 }
 
 function renderProducts(list) {
@@ -124,10 +106,3 @@ deliveryFreeCheckbox.addEventListener('change', () => {
 });
 
 renderProducts(products); //llamamos a la funcion para que aparezca
-
-const button = document.querySelector('#btn-add-product');
-//button.addEventListener('click', addProduct); 
-button.addEventListener('click', () => {
-    addProduct();
-    alert('Se agregó un producto'); // muestro un mensaje cada vez que se agrega un producto
-});

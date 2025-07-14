@@ -1,5 +1,17 @@
 .banner-index {
-    background-image: url('../img/fondo.jpeg');
+    background-image: url('/img/fondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner-index2 {
+    background-image: url('/img/fondo2.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

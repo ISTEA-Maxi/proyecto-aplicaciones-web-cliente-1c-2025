@@ -137,6 +137,47 @@ footer{
     padding: 10px;
 }
 
+/* Formulario de contacto */
+form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #111;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+}
+
+button {
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #7e0017;
+}
+
+
 /*cfg para pantallas chicas*/
 @media (max-width: 768px) {
     .container {

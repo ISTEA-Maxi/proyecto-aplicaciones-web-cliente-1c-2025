@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agregar producto - Nihon Rentals & Parts</title>
+  <link rel="stylesheet" href="/style/styles.css" />
+  <link rel="stylesheet" href="/style/banner-index.css" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+</head>
+<body>
+  <header>
+    <a href="/index.html"><img src="/img/logo.png" alt="Nihon Logo" /></a>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/rent.html" target="_blank">Alquiler</a></li>
+      <li><a href="/store.html" target="_blank">Tienda</a></li>
+      <li><a href="/about-us.html">Sobre Nosotros</a></li>
+      <li><a href="/contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <aside>
+      <h2>Admin menú</h2>
+      <div class="admin-menu">
+        <ul>
+          <li><a href="/admin/add-product.html">Agregar Producto</a></li>
+          <li><a href="/admin/edit-product.html">Editar Productos</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main">
+      <h1>Agregar producto</h1>
+      <form id="add-product-form">
+        <label for="product-brand">Marca:</label>
+        <input type="text" id="product-brand" placeholder="Ej: Toyota" /><br>
+
+        <label for="product-model">Modelo:</label>
+        <input type="text" id="product-model" placeholder="Ej: GT86" /><br>
+
+        <label for="product-title">Título:</label>
+        <input type="text" id="product-title" placeholder="Ej: Turbo Kit" /><br>
+
+        <label for="product-description">Descripción:</label>
+        <input type="text" id="product-description" placeholder="Ej: Kit turbo de alto rendimiento" /><br>
+
+        <label for="product-image">Imagen (URL):</label>
+        <input type="text" id="product-image" placeholder="URL de imagen" /><br>
+
+        <label for="product-price">Precio:</label>
+        <input type="number" id="product-price" placeholder="Ej: 1000" /><br><br>
+
+        <input type="submit" value="Agregar producto" />
+        <button type="button" onclick="window.location.href='/admin/index.html'">Cancelar</button>
+      </form>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Nihon Rentals & Parts. Todos los derechos e izquierdos reservados.</p>
+  </footer>
+  <script src="/scripts/admin-add.js"></script>
+</body>
+</html>

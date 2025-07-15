@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar - Nihon Rentals & Parts</title>
+    <title>Editar producto - Nihon Rentals & Parts</title>
     <link rel="stylesheet" href="/style/styles.css">
     <link rel="stylesheet" href="/style/banner-index.css">
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -22,28 +22,44 @@
         </ul>
     </nav>
     <div class="container">
-        <aside>     
+        <aside>
             <h2>Admin menú</h2>
             <div class="admin-menu">
                 <ul>
                     <li><a href="/admin/add-product.html">Agregar Producto</a></li>
-                    <li><a href="/admin/edit-products.html">Editar Productos</a></li>
+                    <li><a href="/admin/index.html">Editar Productos</a></li>
                 </ul>
+            </div>
         </aside>
         <main id="main">
-            <form>
-                <input type="text" placeholder="Nombre del articulo">
-                <input type="text" placeholder="Precio">
-                <input type="text" placeholder="Descripción">
-                <input type="text" placeholder="Imagen">
-                <input type="submit" value="Crear">
+            <h1>Editar producto</h1>
+            <form id="edit-form">
+                <label for="product-brand">Marca:</label>
+                <input type="text" id="product-brand" placeholder="Marca"><br>
 
+                <label for="product-model">Modelo:</label>
+                <input type="text" id="product-model" placeholder="Modelo"><br>
+
+                <label for="product-title">Título:</label>
+                <input type="text" id="product-title" placeholder="Título"><br>
+
+                <label for="product-description">Descripción:</label>
+                <input type="text" id="product-description" placeholder="Descripción"><br>
+
+                <label for="product-image">Imagen (URL):</label>
+                <input type="text" id="product-image" placeholder="URL de la imagen"><br>
+
+                <label for="product-price">Precio:</label>
+                <input type="number" id="product-price" placeholder="Precio"><br>
+
+                <input type="submit" value="Editar"><br><br>
+                <button type="button" onclick="window.location.href='/admin/index.html'">Cancelar</button>
             </form>
         </main>
     </div>
     <footer>
         <p>&copy; 2025 Nihon Rentals & Parts. Todos los derechos e izquierdos reservados.</p>
     </footer>
-    <script src="/scripts/product.js"></script>
+    <script src="/scripts/admin-edit.js"></script>
 </body>
 </html>

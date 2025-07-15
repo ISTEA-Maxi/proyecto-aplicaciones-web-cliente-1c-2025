@@ -61,6 +61,15 @@ aside{
     width: 250px;
     padding: 1.5rem;
     border-right: 1px solid var(--color-primario);
+    ul{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        a{
+            text-decoration: none;
+        }
+    }
 }
 
 main{

@@ -23,13 +23,16 @@
     </nav>
     <div class="container">
         <aside>     
-            <h2>Filtro</h2> <!--buscador-->
-            <div class="buscador-fltro">
+            <h2>Buscar y Filtrar</h2>
+            <div class="buscador-filtro">
+                <label for="input-search-filter"><strong>Buscar:</strong></label>
                 <input id="input-search-filter" placeholder="Buscar productos">
             </div>
-            <div>
-                <label><input type="checkbox">Ofertas</label>
-                <label><input id="delivery-free" type="checkbox">Envio gratis</label>
+            <div class="filtro-precio">
+                <label><strong>Precio mínimo:</strong></label>
+                <input type="number" id="precio-min" placeholder="Ingrese precio mínimo">
+                <label><strong>Precio máximo:</strong></label>
+                <input type="number" id="precio-max" placeholder="Ingrese precio máximo">
             </div>
         </aside>
         <main id="main">

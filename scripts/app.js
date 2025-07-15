@@ -5,6 +5,7 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 const products = []; //creamos la variable products vacio para despues llenarlo cuando hace la llamada
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || []; //obtenemos los productos del carrito del localstorage
+const grid = document.querySelector('.grilla-productos'); //seleccionamos el grid principal
 
 const addToAirtable = async (product)=>{
     const itemAirtable = {
@@ -40,7 +41,7 @@ const getProducts = async () => { //meto la funcion async dentro de la variable 
             description: item.fields.description,
             image: item.fields.image,
             price: item.fields.price,
-    };
+        };
     })
     //console.log(productsMaped); 
     products.push(...productsMaped); //le mando a products el contenido de productsMaped para que funcione el buscador
@@ -49,10 +50,6 @@ const getProducts = async () => { //meto la funcion async dentro de la variable 
 }
 
 getProducts(); //llamamos a la funcion para que aparezca los productos de la API
-
-const grid = document.querySelector('.grilla-productos');
-const searchInput = document.querySelector('#input-search-filter');
-const deliveryFreeCheckbox = document.querySelector('#delivery-free');
 
 function createProductCard(products) {
     const card = document.createElement('article'); //creamos la tarjeta
@@ -93,28 +90,33 @@ function createProductCard(products) {
 }
 
 function renderProducts(list) {
+    grid.innerHTML = ''; //limpia el grid
     list.forEach(product => { //recorre todo el vector
         const card = createProductCard(product); //creamos la tarjeta
-        grid.appendChild(card); //inserta lo productos
+        grid.appendChild(card); //inserta los productos
     });
 }
 
-// FUNCION DE FILTRO
-function filterProducts(text){
-    const filteredProducts = products.filter(product => {
-        return `${product.brand} ${product.model} ${product.title} ${product.description}`.toLowerCase().includes(text.toLowerCase()) //filtra sin importar la mayuscula o minuscula
-        && (product.deliveryFree === deliveryFreeCheckbox.checked || !deliveryFreeCheckbox.checked); //filtra por el checkbox
+// FUNCION FILTRO
+const searchInput = document.querySelector('#input-search-filter'); //input de búsqueda
+const priceMinInput = document.querySelector('#precio-min'); //input precio mínimo
+const priceMaxInput = document.querySelector('#precio-max'); //input precio máximo
+
+function filterProducts() {
+    const text = searchInput.value.toLowerCase(); //valor de búsqueda en minúscula
+    const priceMin = parseFloat(priceMinInput.value) || 0; //valor mínimo o 0 si está vacío
+    const priceMax = parseFloat(priceMaxInput.value) || Infinity; //valor máximo o infinito si está vacío
+
+    const filtered = products.filter(product => {
+        const matchText = `${product.brand} ${product.model} ${product.title} ${product.description}`.toLowerCase().includes(text);
+        const matchPrice = product.price >= priceMin && product.price <= priceMax;
+        return matchText && matchPrice; //cumple los 2 filtros, el texto y el precio, ya sea que este seteado o no
     });
-    grid.innerHTML = ''; //limpia el grid
-    renderProducts(filteredProducts); //llamamos a la funcion para que aparezca
+
+    renderProducts(filtered); //renderiza los productos filtrados
 }
 
-searchInput.addEventListener('input', (event) => {
-    filterProducts(event.target.value); //captura el valor del input
-});
-
-deliveryFreeCheckbox.addEventListener('change', () => {
-    filterProducts(searchInput.value); //con esto filtramos los productos cuando se cambia el checkbox
-});
-
-renderProducts(products); //llamamos a la funcion para que aparezca
+//event listeners para activar el filtro
+searchInput.addEventListener('input', filterProducts);
+priceMinInput.addEventListener('input', filterProducts);
+priceMaxInput.addEventListener('input', filterProducts);

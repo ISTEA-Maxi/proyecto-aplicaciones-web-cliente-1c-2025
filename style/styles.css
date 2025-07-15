@@ -7,8 +7,9 @@
     --fuente-general: 'Poppins', sans-serif;
 }
 
+/*cfg global*/
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body{
@@ -50,6 +51,7 @@ nav{
     }
 }
 
+/*cfg para pc de escritorio*/
 .container{
     display: flex;
     min-height: calc(100vh - 170px);
@@ -111,11 +113,11 @@ main{
 }
 
 .separador {
-border: none;
-height: 2px;
-background-color: var(--color-primario);
-width: 80%;
-margin: 3rem auto;
+    border: none;
+    height: 2px;
+    background-color: var(--color-primario);
+    width: 80%;
+    margin: 3rem auto;
 }
 
 footer{
@@ -126,6 +128,7 @@ footer{
     padding: 10px;
 }
 
+/*cfg para pantallas chicas*/
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -143,12 +146,31 @@ footer{
         flex-wrap: wrap;
         font-size: 0.85rem;
         gap: 10px;
-}
+    }
     .grilla-productos {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         justify-items: center;
     }
     .tarjeta-articulos {
         max-width: 400px;
+    }
+
+    header img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    aside input[type="text"] {
+        width: 100%;
+    }
+
+    aside label {
+        display: block;
+        margin-top: 0.5rem;
+        font-weight: 600;
+    }
+
+    aside .buscador-fltro {
+        margin-bottom: 1rem;
     }
 }

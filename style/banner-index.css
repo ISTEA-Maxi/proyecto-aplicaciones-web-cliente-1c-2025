@@ -54,3 +54,18 @@
 .banner-index-fondo button:hover {
     background-color: #7e0017;
 }
+
+/*cfg para pantallas chicas*/
+@media (max-width: 768px) {
+    .banner-index-fondo h1 {
+        font-size: 1.8rem;
+    }
+
+    .banner-index-fondo p {
+        font-size: 1rem;
+    }
+
+    .banner-index-fondo {
+        padding: 1.5rem 1.5rem;
+    }
+}

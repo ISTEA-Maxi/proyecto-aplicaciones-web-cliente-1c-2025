@@ -4,6 +4,7 @@ const TABLE_NAME = 'Parts';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 const products = []; //creamos la variable products vacio para despues llenarlo cuando hace la llamada
+const cartProducts = JSON.parse(localStorage.getItem('cart')) || []; //obtenemos los productos del carrito del localstorage
 
 const addToAirtable = async (product)=>{
     const itemAirtable = {
@@ -43,6 +44,7 @@ const getProducts = async () => { //meto la funcion async dentro de la variable 
     })
     //console.log(productsMaped); 
     products.push(...productsMaped); //le mando a products el contenido de productsMaped para que funcione el buscador
+
     renderProducts(productsMaped); //mostramos en el grid los productos obtenidos de la API
 }
 
@@ -70,7 +72,17 @@ function createProductCard(products) {
     price.textContent = `$${products.price}`;
 
     const button = document.createElement('button'); //creamos el boton
-    button.textContent = 'Buy!';
+    button.textContent = 'Agregar al carrito';
+    button.addEventListener('click', () => {
+        const exists = cartProducts.find(p => p.description === products.description); //verifica si el producto ya existe en el carrito
+        if (!exists) { //si no existe
+            cartProducts.push(products); //agrega el producto al carrito
+            localStorage.setItem('cart', JSON.stringify(cartProducts)); //guarda el carrito en el localstorage
+            alert('Producto agregado al carrito');
+        } else {
+            alert('El producto ya está en el carrito');
+        }
+    });
 
     card.appendChild(img);
     card.appendChild(title);

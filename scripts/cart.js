@@ -36,7 +36,7 @@ function createProductCartCard(products) {
 }
 
 function renderCartProducts() {
-    const cartGrid = document.querySelector('.cart-grid'); //seleccionamos el grid del carrito
+    const cartGrid = document.querySelector('.grilla-productos'); //seleccionamos el grid del carrito
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
     cartGrid.innerHTML = ''; //limpiamos el grid antes de agregar los productos
     currentCart.forEach(product => {

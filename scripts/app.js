@@ -108,7 +108,7 @@ function filterProducts() {
     const priceMax = parseFloat(priceMaxInput.value) || Infinity; //valor máximo o infinito si está vacío
 
     const filtered = products.filter(product => {
-        const matchText = `${product.brand} ${product.model} ${product.title} ${product.description}`.toLowerCase().includes(text);
+        const matchText = `${product.description}`.toLowerCase().includes(text); //originalmente se podia buscar por titulo, marca, modelo, pero eso duplicaba las tarjetas
         const matchPrice = product.price >= priceMin && product.price <= priceMax;
         return matchText && matchPrice; //cumple los 2 filtros, el texto y el precio, ya sea que este seteado o no
     });
